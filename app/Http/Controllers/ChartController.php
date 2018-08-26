@@ -14,6 +14,8 @@ class ChartController extends Controller
 {
     public function line()
     {
+        $xx = "Hall mal";
+        Debugbar::info($xx);
         return (new LineChart())
             ->title('Income')
             ->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July'])

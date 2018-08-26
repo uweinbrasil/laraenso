@@ -6,6 +6,10 @@ import router from './router';
 import storeImporter from './modules/importers/storeImporter';
 import localState from './localState';
 
+
+
+// require('axios-debug')(axios);
+
 Vue.use(Vuex);
 
 const modules = storeImporter(require.context('./store', false, /.*\.js$/));
@@ -56,8 +60,7 @@ export default new Vuex.Store({
 
     actions: {
         initialise({ commit, dispatch }) {
-            commit('initialise', false);
-
+            commit('initialise', false);   
             axios.get('/api/core').then(({ data }) => {
                 commit('setUser', data.user);
                 commit('preferences/set', data.preferences);

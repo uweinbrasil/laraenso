@@ -1,9 +1,10 @@
 <template>
-
+   
     <vue-aside class="menu">
         <p class="menu-label has-text-centered">
             {{ __("Menu") }}
         </p>
+       <!--   DEBUG-Sidebars.vue -->
         <div class="menu-wrapper">
             <menus :menus="menus"
                 :is-active="isActive"/>
@@ -23,7 +24,7 @@ export default {
 
     components: { Menus, VueAside },
 
-    computed: {
+    computed: {        
         ...mapState('menus', { menus: 'list' }),
         ...mapState('layout', ['navbar']),
     },
@@ -36,7 +37,7 @@ export default {
         ...mapMutations('menus', ['expand']),
         checkActiveChildren(menus) {
             const menu = menus.find(menu => this.hasActiveChild(menu));
-
+            debugger;
             if (menu) {
                 this.expand(menu);
                 this.checkActiveChildren(menu.children);

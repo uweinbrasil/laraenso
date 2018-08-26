@@ -61,6 +61,7 @@ export default {
     },
 
     mounted() {
+        debugger;
         if (this.collapsed) {
             this.$el.style.height = 0;
         }
